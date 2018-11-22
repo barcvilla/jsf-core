@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-    <artifactId>JSF-CORE</artifactId>
-    <groupId>ar.com.jsf</groupId>
-    <version>1.0</version>
-  </parent>
 
     <groupId>ar.com.jsf</groupId>
-    <artifactId>CH02_Dynamic_Navigation_Listing_3_1</artifactId>
+    <artifactId>ch03-dynamic-navigation</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>CH02_Dynamic_Navigation_Listing_3_1</name>
+    <name>ch03-dynamic-navigation</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

@@ -10,6 +10,5 @@
     </properties>
   <modules>
     <module>CH02_Listing_2_3_Number_Quiz</module>
-    <module>CH02_Dynamic_Navigation_Listing_3_1</module>
   </modules>
 </project>
