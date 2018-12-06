@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06/12/2018, 15:12:13
+    Author     : PC
+*/
+
+.evenColumns
+{
+    font-style: italic;
+}
+.oddColumns
+{
+    padding-left: 1em; 
+}
