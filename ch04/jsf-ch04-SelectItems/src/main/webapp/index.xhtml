@@ -7,7 +7,36 @@
         <title>#{msgs.indexWindowTitle}</title>
     </h:head>
     <h:body>
-        
+        <h:outputText value="#{msgs.indexPageTitle}" styleClass="emphasis" />
+        <h:form>
+            <h:panelGrid columns="2">
+                #{msgs.namePrompt}
+                <h:inputText value="#{form.name}" />
+                #{msgs.contactMeLabel}
+                <h:selectBooleanCheckbox value="#{form.contactMe}" />
+                #{msgs.bestDayPrompt}
+                <h:selectManyMenu value="#{form.bestDayToContact}">
+                    <f:selectItems value="#{form.daysOfTheWeek}" var="w" itemLabel="#{w.dayName}" itemValue="#{w.dayNumber}" />
+                </h:selectManyMenu>
+                #{msgs.yearOfBirthPrompt}
+                <h:selectOneMenu value="#{form.yearOfBirth}" required="true">
+                    <f:selectItems value="#{form.yearItems}" />
+                </h:selectOneMenu>
+                #{msgs.colorPrompt}
+                <h:selectManyCheckbox value="#{form.colors}" selectedClass="selected" disabledClass="disabled" onchange="submit()">
+                    <f:selectItems value="#{form.colorItems}"/>
+                </h:selectManyCheckbox>
+                #{msgs.languagePrompt}
+                <h:selectManyListbox size="5" value="#{form.languages}">
+                    <f:selectItems value="#{form.languageItems}" />
+                </h:selectManyListbox>
+                #{msgs.educationPrompt}
+                <h:selectOneRadio value="#{form.education}" layout="pageDirection">
+                    <f:selectItems value="#{form.educationItems}" />
+                </h:selectOneRadio>
+            </h:panelGrid>
+            <h:commandButton value="#{msgs.buttonPrompt}" action="showInformation" />
+        </h:form>
     </h:body>
 </html>
 

@@ -12,10 +12,22 @@
             <h:outputFormat value="#{msgs.thankYouLabel}">
                 <f:param value="#{form.name}" />
             </h:outputFormat>
-            
+
             <h:panelGrid columns="2">
                 #{msgs.contactMeLabel}
+                <h:outputText value="#{form.contactMe}"/>
+                #{msgs.bestDayLabel}
+                <h:outputText value="#{form.bestDaysConcatenated}"/>
+                #{msgs.yearOfBirthLabel}
+                <h:outputText value="#{form.yearOfBirth}"/>
+                #{msgs.languageLabel}
+                <h:outputText value="#{form.languages}"/>
+                #{msgs.colorLabel}
+                <h:outputText value="#{form.colorsConcatenated}"/>
+                #{msgs.educationLabel}
+                <h:outputText value="#{form.education}"/>
             </h:panelGrid>
+            <h:commandButton value="#{msgs.backPrompt}" action="index"/>
         </h:form>
     </h:body>
 </html>
