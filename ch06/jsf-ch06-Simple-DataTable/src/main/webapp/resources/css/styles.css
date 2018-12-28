@@ -1,0 +1,15 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28/12/2018, 15:06:31
+    Author     : PC
+*/
+.columnHeader {
+   font-style: bold;
+}
+.columnFooter {
+   font-size: 0.75em;
+}
