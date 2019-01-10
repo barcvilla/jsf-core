@@ -6,6 +6,7 @@
 package com.corejsf;
 
 import com.corejsf.db.CConnection;
+import com.sun.rowset.CachedRowSetImpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import javax.sql.rowset.CachedRowSet;
 
 /**
  *
@@ -21,8 +23,10 @@ import javax.sql.DataSource;
  */
 public class CustomerDAO 
 {
+    /*
     @Resource(name = "jdbc/jsfcore")
     private DataSource ds;
+    */
     
     private Connection conn;
     private PreparedStatement pstmt;
