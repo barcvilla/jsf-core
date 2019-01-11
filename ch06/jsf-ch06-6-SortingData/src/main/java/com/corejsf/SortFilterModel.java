@@ -10,7 +10,10 @@ import java.util.Comparator;
 import javax.faces.model.DataModel;
 
 /**
- *
+ * Sorting model que contiene un regular model y un array de integers rows, donde rows[i] indica el indice del
+ * indice del modelo de dato que deberia ser mostrado en la fila ith. Para ordenar el array en diferentes formas
+ * ordenamos los indices de fila.
+ * 
  * @author PC
  */
 public class SortFilterModel<E> extends DataModel<E> {
@@ -57,27 +60,39 @@ public class SortFilterModel<E> extends DataModel<E> {
         };
         Arrays.sort(rows, rowComp);
     }
-
+    
+    // Retorna true si hay una dato valido en el indice de fila actual
     @Override
     public boolean isRowAvailable() {
         return model.isRowAvailable();
     }
-
+    
+    /**
+     * retorna el numero total de filas, si se conoce, de lo contrario retorna -1. el ResultSetDataModel siempre
+     * retorna -1 de este metodo.
+     * @return 
+     */
     @Override
     public int getRowCount() {
         return model.getRowCount();
     }
-
+    
+    // retorna el dato asociado con la fila actual
     @Override
     public E getRowData() {
         return model.getRowData();
     }
-
+    
+    // obtenemos el indice de la fila actual
     @Override
     public int getRowIndex() {
         return model.getRowIndex();
     }
-
+    
+    /**
+     * Establecemos el indice de la fila actual
+     * @param rowIndex 
+     */
     @Override
     public void setRowIndex(int rowIndex) {
         if(0 <= rowIndex && rowIndex < rows.length)
@@ -89,12 +104,14 @@ public class SortFilterModel<E> extends DataModel<E> {
             model.setRowIndex(rowIndex);
         }
     }
-
+    
+    // retorna el dato envuelto del data model
     @Override
     public Object getWrappedData() {
         return model.getWrappedData();
     }
-
+    
+    // Establece el objeto que un data model envuelve
     @Override
     public void setWrappedData(Object data) {
         model.setWrappedData(data);
@@ -114,3 +131,4 @@ public class SortFilterModel<E> extends DataModel<E> {
         }
     }
 }
+    

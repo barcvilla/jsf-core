@@ -13,7 +13,14 @@ import javax.faces.model.ArrayDataModel;
 import javax.faces.model.DataModel;
 
 /**
- *
+ * Cuando Usamos Java Objects como: array, List, ResultSet o JSTL result object representa table data.
+ * h:dataTable envuelte estos objetos en un modelo que extiende de la clase javax.faces.model.DataModel. Todos estos
+ * model classes pueden ser:
+ * ArrayDataModel
+ * ListDataModel
+ * ResultDataModel
+ * ResultSetDataModel
+ * ScalarDataModel
  * @author PC
  */
 @Named(value = "tableData")
@@ -31,9 +38,15 @@ public class TableData implements Serializable {
     
     public TableData() 
     {
+        // Creamos una instancia del ArrayDataModel y le pasamos un array de elementos. Luego envolvemos el modelo
+        // en un sorting model. 
         filterModel = new SortFilterModel<Name>(new ArrayDataModel<Name>(names));
     }
     
+    /**
+     * Metodo llamado para poblar el Data table. 
+     * @return - retorna el sroting model
+     */
     public DataModel<Name> getNames()
     {
         return filterModel;
