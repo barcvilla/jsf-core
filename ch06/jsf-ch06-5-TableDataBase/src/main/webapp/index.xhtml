@@ -10,32 +10,34 @@
     </h:head>
     <h:body>
         <h:form>
+
             <h:dataTable value="#{customerBean.allCustomers}" var="customer" styleClass="customers" headerClass="customersHeader" columnClasses="custid,name">
                 <h:column>
                     <f:facet name="header">#{msgs.customerIdHeader}</f:facet>
-                    #{customer.id}
+                        #{customer.id}
                 </h:column>
                 <h:column>
                     <f:facet name="header">#{msgs.nameHeader}</f:facet>
-                    #{customer.name}
+                        #{customer.name}
                 </h:column>
                 <h:column>
                     <f:facet name="header">#{msgs.phoneHeader}</f:facet>
-                    #{customer.phone}
+                        #{customer.phone}
                 </h:column>
                 <h:column>
                     <f:facet name="header">#{msgs.addressHeader}</f:facet>
-                    #{customer.address}
+                        #{customer.address}
                 </h:column>
                 <h:column>
                     <f:facet name="header">#{msgs.cityHeader}</f:facet>
-                    #{customer.city}
+                        #{customer.city}
                 </h:column>
                 <h:column>
                     <f:facet name="header">#{msgs.stateHeader}</f:facet>
-                    #{customer.state}
+                        #{customer.state}
                 </h:column>
             </h:dataTable>
+
         </h:form>
     </h:body>
 </html>
