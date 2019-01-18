@@ -12,6 +12,11 @@
             <h1>#{msgs.paymentInformation}</h1>
             <h:panelGrid columns="2">
                 #{msgs.amount}
+                <!--Mostramos los input provistos por el cliente-->
+                <!--Una forma alternativa de adjuntar un converter a un componente es adicionar el atributo
+                    converter al component tag
+                    h:outputText value=payment.date converter=javax.faces.DateTime
+                -->
                 <h:outputText value="#{payment.amount}">
                     <f:convertNumber type="currency" />
                 </h:outputText>
