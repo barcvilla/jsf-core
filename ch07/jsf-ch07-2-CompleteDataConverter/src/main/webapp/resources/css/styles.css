@@ -7,4 +7,6 @@ and open the template in the editor.
     Created on : 17/01/2019, 23:31:30
     Author     : PC
 */
-
+.errorMessage {
+   color:red; 
+}
