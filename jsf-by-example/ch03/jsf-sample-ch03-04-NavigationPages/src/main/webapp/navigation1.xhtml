@@ -13,16 +13,18 @@ and open the template in the editor.
         <title>Navigation Example</title>
     </h:head>
     <h:body>
-        <h:form id="componentForm">
-            <h1>JSF Navigation - Page 1</h1>
-            <p>
-                Clicking the submit button below will take you to Page #2.
-            </p>
-            <br/>
-            <h:commandButton id="navButton" action="#{navigationController.pageTwo}" value="Go to Page 2" />
-            <br/>
-            <br/>
-            <h:commandButton id="navButton2" value="Implicity Navigate to Page 3" />
-        </h:form>
+        <f:view>
+            <h:form id="componentForm">
+                <h1>JSF Navigation - Page 1</h1>
+                <p>
+                    Clicking the submit button below will take you to Page #2.
+                </p>
+                <br/>
+                <h:commandButton id="navButton" action="#{navigationController.pageTwo}" value="Go to Page 2" />
+                <br/>
+                <br/>
+                <h:commandButton id="navButton2" action="#{navigationController.nextPage}" value="Implicity Navigate to Page 3" />
+            </h:form>
+        </f:view>
     </h:body>
 </html>
