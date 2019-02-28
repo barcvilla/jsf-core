@@ -27,38 +27,36 @@
                     <h:outputText id="title" value="#{emp.employeeTitle}" />
                 </h:column>
             </h:dataTable>
-            <p>
-                Please use the form below to insert employee information.
-            </p>
+            <p style="width: 40%;">
+                Please use the form below to insert employee information. The first and
+                last text fields will result in immediate evaluation during the apply request
+                values phase, whereas the text field
+                in the middle will result in standard evaluation and be validated during
+                the invoke application phase.
+                <br/><br/>
+                To test, try inserting just one character in the first text field
+                and then tab to the next field.  You should see an immediate result.
+            </p
             <h:panelGrid columns="3">
                 <h:outputLabel for="employeeFirst" value="First: " />
-                <h:inputText id="employeeFirst" value="#{employeeController.employeeFirst}">
+                <h:inputText id="employeeFirst" immediate="true" onchange="submit()" value="#{employeeController.employeeFirst}">
                     <f:validateLength minimum="3" maximum="30" />
                 </h:inputText>
-                <h:message for="employeeFirst" errorStyle="color:red" />
-                
+                <h:message for="employeeFirst" errorStyle="color: red" />
+
                 <h:outputLabel for="employeeLast" value="Last: "  />
                 <h:inputText id="employeeLast" value="#{employeeController.employeeLast}">
                     <f:validateLength minimum="3" maximum="30"/>
                 </h:inputText>
                 <h:message for="employeeLast" errorStyle="color:red"/>
-                
-                <!--En este tercer componente utilizamos validador personalizado. f:validator es utilizado
-                para especificar una validacion personalizada. La propiedad validatorId es utilizada para especificar
-                la clase correspondiente de validacion en nuestro ejemplo la clase de validacion personalizada es
-                EmployeeTitleValidate-->
-                <h:outputLabel for="employeeTitle" value="Title (Must be a Java Position): "/>
-                <!--La validacion ocurren inmediatamente antes que el request es enviado al metodo action del managed
-                bean. Cualquier validacion ocurre durante la fase de proceso de validacion.
-                Si uno o mas componentes que estan siendo validados lanzan un ValidatorException, entonces el procesamiento
-                se detiene y la request no se envia al metodo. Cuan el usuario hace click en el boton submit
-                la validacion toma lugar primero y si todo esta bien, entonces el request es paso al action method-->
-                <h:inputText id="employeeTitle" value="#{employeeController.employeeTitle}">
+
+                <h:outputLabel for="employeeTitle" value="Title (Must be a Java Position): " />
+                <h:inputText id="employeeTitle" immediate="true" value="#{employeeController.employeeTitle}">
                     <f:validator validatorId="employeeTitleValidate" />
                 </h:inputText>
                 <h:message for="employeeTitle" errorStyle="color:red"/>
             </h:panelGrid>
-            <h:commandButton id="employeeInsert" action="#{employeeController.insertEmployee}" value="Insert Employee" />
+            <h:commandButton id="employeeInsert" action="#{employeeController.insertEmployee}" value="Insert Employee"/>
         </h:form>
     </h:body>
 </html>
