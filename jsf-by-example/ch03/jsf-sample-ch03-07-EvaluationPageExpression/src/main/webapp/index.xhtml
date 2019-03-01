@@ -39,6 +39,10 @@
             </p
             <h:panelGrid columns="3">
                 <h:outputLabel for="employeeFirst" value="First: " />
+                <!--Para realizar validaciones inmediatas, debemos incluir la propiedad immediate a true y tambien
+                especificar el atributo onChange en submit() Esto provocara que el campo input sea inmediatamente
+                submmitted cuando el valor del componente ha cambiado. JSF salta la fase render y ejecuta todos los
+                componentes que contengan la propiedad inmmediate = true-->
                 <h:inputText id="employeeFirst" immediate="true" onchange="submit()" value="#{employeeController.employeeFirst}">
                     <f:validateLength minimum="3" maximum="30" />
                 </h:inputText>
