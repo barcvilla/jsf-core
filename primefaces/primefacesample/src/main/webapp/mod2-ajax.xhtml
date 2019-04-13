@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Nombre: " for="nombre"/>
+                <p:inputText id="nombre" value="#{inversionNombreBean.nombre}"/>
+            </p:panelGrid>
+            <br/>
+            <h:outputText value="#{inversionNombreBean.nombreInvertido}" id="nombreInvertido"/>
+            <br/><br/>
+            <p:commandButton value="invertir" action="#{inversionNombreBean.invertir}" 
+              update="nombreInvertido"/><!--atributo update permite indicar que componente en el formulario
+                se debe actualizar-->
+        </h:form>
+    </h:body>
+</html>
