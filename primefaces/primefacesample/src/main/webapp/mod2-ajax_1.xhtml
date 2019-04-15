@@ -20,7 +20,7 @@ and open the template in the editor.
                 <p:inputText id="nombre" value="#{inversionNombreBean.nombre}">
                     <!--Cuando el componente InputText cambie el ajax listener llama al metodo invertir y se
                     actualiza el componente outputText nombreInvertido-->
-                    <p:ajax listener="#{inversionNombreBean.invertir}" update="nombreInvertido"/>
+                    <p:ajax listener="#{inversionNombreBean.invertir}" update="nombreInvertido" event="keyup"/>
                 </p:inputText>
             </p:panelGrid>
             <br/>

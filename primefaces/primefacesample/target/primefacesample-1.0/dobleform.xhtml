@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form id="frm">
+            <p:panelGrid columns="2" id="pgd1">
+                <p:outputLabel value="Nombre: " for="nombre"/>
+                <p:inputText id="nombre" value="#{inversionNombreBean.nombre}">
+                    <!--Cuando el componente InputText cambie el ajax listener llama al metodo invertir y se
+                    actualiza el componente outputText nombreInvertido
+                    llamamos al componente :frm2:nombreInvertido del segundo formulario-->
+                    <p:ajax listener="#{inversionNombreBean.invertir}" update=":frm2:nombreInvertido" event="keyup"/>
+                </p:inputText>
+            </p:panelGrid>
+        </h:form>
+        <br/>
+        <h:form id="frm2">
+            <h:outputText value="#{inversionNombreBean.nombreInvertido}" id="nombreInvertido"/>
+        </h:form>
+    </h:body>
+</html>
