@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>JavaServer Faces 2 - Chapter 2</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Nombre: 
+            <h:inputText value="#{gestionProductosBean.producto.nombre}"/>
+            <br/>
+            Fabricante: 
+            <h:inputText value="#{gestionProductosBean.producto.fabricante}"/>
+            <br/>
+            Categoria: 
+            <h:inputText value="#{gestionProductosBean.producto.categoria}" />
+            <br/>
+            <h:commandButton value="Incluir" action="#{gestionProductosBean.incluir}" />
+        </h:form>
+        <ol>
+            <ui:repeat var="producto" value="#{gestionProductosBean.productos}">
+                <li>#{producto.nombre} - #{producto.fabricante} - #{producto.categoria}</li>
+            </ui:repeat>
+        </ol>
+    </h:body>
+</html>
