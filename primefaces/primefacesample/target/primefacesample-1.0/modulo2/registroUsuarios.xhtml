@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Procesamiento parcial formulario</title>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8" name="viewport"/>
+    </h:head>
+    <h:body>
+        <h:form id="frm">
+            <p:messages autoUpdate="true" />
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Login" for="login" />
+                <!--Agrupamos los componente inputText y commandButton en la misma linea-->
+                <h:panelGroup>
+                    <p:inputText id="login" value="#{registroUsuario.login}" required="true" />
+                    <!--el atributo procces permite indicar que componente se procesara cuando se realice el 
+                        submit de la pagina. Por defecto el atributo process procesa toda la pagina.
+                        login @this indica que se procesara el elemento inputText y el commandButton-->
+                    <p:commandButton value="Verificar disponibilidad" action="#{registroUsuario.verificicarDisponibilidadLogin}"
+                                     process="login @this"/>
+                </h:panelGroup>
+                <p:outputLabel value="Nombre" for="nombre" />
+                <p:inputText id="nombre" value="#{registroUsuario.nombre}" required="true" />
+            </p:panelGrid>
+            <p:commandButton value="Registrar" action="#{registroUsuario.registrar}" />
+        </h:form>
+    </h:body>
+</html>
