@@ -3,15 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>JavaServer Faces 2 - Chapter 2</title>
+        <title>Ayuda - Gestion de Productos</title>
     </h:head>
     <h:body>
         <p>
-            <h1>JavaServer Faces 2 - Curso AlgaWorks - Chapter 02</h1>
+            <h1>Formulario que permite el registro de productos</h1>
         </p>
         <div>
-            <a href="#{request.contextPath}/faces/ch02/GestionProductos.xhtml">Session Scope</a>
+            <h:form>
+                <h:commandButton value="retornar al registro producto" action="GestionProductos?faces-redirect=true" />
+            </h:form>
         </div>
     </h:body>
 </html>
-

@@ -8,6 +8,11 @@
     </h:head>
     <h:body>
         <h:form>
+            <!--HTTP POST
+            <h:commandLink value="Ayuda sobre esta pagina" action="AyudaGestionProductos?faces-redirect=true" />
+            -->
+            <h:commandLink value="Ayuda sobre esta pagina" action="#{gestionProductosBean.obtenerAyuda}" />
+            <br/><br/>
             Nombre: 
             <h:inputText value="#{gestionProductosBean.producto.nombre}"/>
             <br/>
@@ -17,7 +22,8 @@
             Categoria: 
             <h:inputText value="#{gestionProductosBean.producto.categoria}" />
             <br/>
-            <h:commandButton value="Incluir" action="#{gestionProductosBean.incluir}" />
+            <h:commandButton value="Incluir" action="#{gestionProductosBean.incluir}"
+                             actionListener="#{gestionProductosBean.verificarInclusion}"/>
         </h:form>
         <ol>
             <ui:repeat var="producto" value="#{gestionProductosBean.productos}">

@@ -5,11 +5,13 @@
  */
 package com.jsf.ch02.domain;
 
+import java.io.Serializable;
+
 /**
  *
  * @author PC
  */
-public class Product {
+public class Product implements Serializable{
     private String nombre;
     private String fabricante;
     private String categoria;

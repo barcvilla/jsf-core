@@ -18,7 +18,7 @@
             30
         </session-timeout>
     </session-config>
-    
+    <!--
     <filter>
         <filter-name>Encoding Filter</filter-name>
         <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
@@ -31,8 +31,9 @@
         <filter-name>Encoding Filter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+    -->
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
+        
 </web-app>
