@@ -52,6 +52,14 @@ public class RegistroUsuario implements Serializable {
     public void verificicarDisponibilidadLogin()
     {
         FacesMessage msg = null;
+        //simulamos las demora 1 segundo
+        try
+        {
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex)
+        {}
+        
         System.out.println("Verificando disponibilidad: " + this.login);
         if("joao".equalsIgnoreCase(this.login))
         {

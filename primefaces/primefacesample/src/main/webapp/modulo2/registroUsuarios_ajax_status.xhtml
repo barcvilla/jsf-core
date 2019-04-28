@@ -12,27 +12,15 @@ and open the template in the editor.
     <h:head>
         <title>Procesamiento event change formulario</title>
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" name="viewport"/>
-        <style>
-            .ajax-status{
-                
-                background: red;
-                
-            }
-        </style>
+        
     </h:head>
 
     <h:body>
         <h:form id="frm">
-            <!--Trabajamos con componentes Ajax-->
-            <p:ajaxStatus styleClass="ajax-status">
-                <f:facet name="start">
-                    <h:graphicImage library="images" name="loading.gif" />
-                </f:facet>
-                <f:facet name="complete">
-                    <h:outputText value=""/>
-                </f:facet>
-            </p:ajaxStatus>
-
+            <!--Trabajamos con componentes Ajax status. En lugar de usar faces podemos utilizar jquery-->
+            <p:ajaxStatus onstart="$('input').css('background-color', 'yellow')"
+                          oncomplete="$('input').css('background-color', '')"/>
+            
             <p:messages autoUpdate="true" />
             <p:panelGrid columns="2">
                 <f:facet name="header">
