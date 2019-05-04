@@ -1,3 +1,4 @@
-com\algaworks\mod2\domain\RegistroAlumno.class
 com\algaworks\mod2\ajax\InversionNombreBean.class
 com\algaworks\mod2\ajax\RegistroUsuario.class
+com\algaworks\mod2\domain\PerfilUsuarioBean.class
+com\algaworks\mod2\domain\RegistroAlumno.class

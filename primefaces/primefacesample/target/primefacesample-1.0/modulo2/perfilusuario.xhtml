@@ -8,6 +8,34 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Perfil de Usuario</title>
+        <script>
+            PrimeFaces.locales['es'] = {
+                closeText: 'Cerrar',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+                weekHeader: 'Semana',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Sólo hora',
+                timeText: 'Tiempo',
+                hourText: 'Hora',
+                minuteText: 'Minuto',
+                secondText: 'Segundo',
+                currentText: 'Fecha actual',
+                ampm: false,
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Día',
+                allDayText: 'Todo el día'
+            };
+        </script>
     </h:head>
     <h:body>
         <h:form id="frm">
@@ -21,6 +49,18 @@
                             match="confirmarpassword"/>
                 <p:outputLabel value="Confirmacion password" for="confirmarpassword" />
                 <p:password id="confirmarpassword" required="true" />
+                <p:outputLabel value="Nacimiento " for="nacimiento" />
+                <p:calendar id="nacimiento" required="true" value="#{perfilUsuarioBean.nacimiento}"
+                            pattern="dd/MM/yyyy" readonly="true" readonlyInput="false" navigator="true" pages="4"
+                            mode="popup" locale="es"/>
+                <p:outputLabel value="comentarios" for="comentario" />
+                <h:panelGroup>
+                    <p:inputTextarea id="comentario" value="#{perfilUsuarioBean.comentarios}" cols="40" rows="5"
+                                     autoResize="false" maxlength="160" counter="contador" counterTemplate="quedan {0} caracteres"
+                                     completeMethod="#{perfilUsuarioBean.completarTexto}"/>
+                    <br/>
+                    <h:outputLabel id="contador"/>
+                </h:panelGroup>
             </p:panelGrid>
             <!--update=@form - via ajax el formulario complete sera actualizado-->
             <p:commandButton value="Actualizar" action="#{perfilUsuarioBean.actualizar}" update="@form"/>
