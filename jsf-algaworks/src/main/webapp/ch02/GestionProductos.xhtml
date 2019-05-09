@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>JavaServer Faces 2 - Chapter 2</title>
     </h:head>
@@ -11,7 +12,9 @@
             <!--HTTP POST
             <h:commandLink value="Ayuda sobre esta pagina" action="AyudaGestionProductos?faces-redirect=true" />
             -->
-            <h:commandLink value="Ayuda sobre esta pagina" action="#{gestionProductosBean.obtenerAyuda}" />
+            <h:commandLink value="Ayuda sobre esta pagina" action="#{gestionProductosBean.obtenerAyuda}" >
+                <f:actionListener binding="#{registroBotonListener}" />
+            </h:commandLink>
             <br/><br/>
             Nombre: 
             <h:inputText value="#{gestionProductosBean.producto.nombre}"/>
@@ -22,8 +25,12 @@
             Categoria: 
             <h:inputText value="#{gestionProductosBean.producto.categoria}" />
             <br/>
+            <!--Aqui podriamos utilizar el actionListener mediante faces como en el caso del
+            commandLink-->
             <h:commandButton value="Incluir" action="#{gestionProductosBean.incluir}"
-                             actionListener="#{gestionProductosBean.verificarInclusion}"/>
+                             actionListener="#{gestionProductosBean.verificarInclusion}">
+                <f:actionListener binding="#{registroBotonListener}"/>
+            </h:commandButton>
         </h:form>
         <ol>
             <ui:repeat var="producto" value="#{gestionProductosBean.productos}">

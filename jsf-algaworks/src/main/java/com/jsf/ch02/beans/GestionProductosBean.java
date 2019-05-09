@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jsf.ch02;
+package com.jsf.ch02.beans;
 
 import com.jsf.ch02.domain.Product;
 import java.io.Serializable;
