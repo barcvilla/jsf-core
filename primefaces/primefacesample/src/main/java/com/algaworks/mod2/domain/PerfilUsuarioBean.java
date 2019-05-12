@@ -29,16 +29,33 @@ public class PerfilUsuarioBean implements Serializable {
     private String password;
     private Date nacimiento;
     private String comentarios;
+    private String nombre;
+    private String profesion;
+    private Interes interes;
+    
+    public static final List<Interes> INTERESES = new ArrayList<Interes>();
     
     public PerfilUsuarioBean() {
         
     }
     
+    static
+    {
+        INTERESES.add(new Interes("Futbol", "futbol"));
+        INTERESES.add(new Interes("Atletismo", "atletismo"));
+        INTERESES.add(new Interes("Ciclismo", "ciclismo"));
+        INTERESES.add(new Interes("Tenis", "tenis"));
+    }
+    
     public void actualizar()
     {
+        System.out.println("Login: " + login);
         System.out.println("Password: " + password);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Profesion: " + profesion);
         System.out.println("Comentarios: " + comentarios);
         System.out.println("Nacimiento: " + nacimiento);
+        System.out.println("Intereses: " + interes.getDescripcion());
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado"));
     }
     
@@ -53,7 +70,12 @@ public class PerfilUsuarioBean implements Serializable {
         }
         return resultados;
     }
-
+    
+    public List<Interes> getIntereses()
+    {
+        return INTERESES;
+    }
+    
     public String getLogin() {
         return login;
     }
@@ -70,6 +92,23 @@ public class PerfilUsuarioBean implements Serializable {
         this.password = password;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getProfesion() {
+        return profesion;
+    }
+
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
+    }
+    
+
     public Date getNacimiento() {
         return nacimiento;
     }
@@ -77,6 +116,14 @@ public class PerfilUsuarioBean implements Serializable {
     public void setNacimiento(Date birth) {
         //nacimiento = (LocalDate)LocalDate.of(birth.getDay(), birth.getMonth(), birth.getYear());
         nacimiento = birth;
+    }
+
+    public Interes getInteres() {
+        return interes;
+    }
+
+    public void setInteres(Interes interes) {
+        this.interes = interes;
     }
 
     public String getComentarios() {

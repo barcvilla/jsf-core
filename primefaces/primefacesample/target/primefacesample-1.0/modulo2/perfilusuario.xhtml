@@ -41,18 +41,39 @@
         <h:form id="frm">
             <p:messages />
             <p:panelGrid columns="2">
+                <p:outputLabel value="Nombre" for="nombre" />
+                <p:inputText id="nombre" required="true" value="#{perfilUsuarioBean.nombre}" />
+                
+                <p:outputLabel value="Profesion"  for="profesion" />
+                <p:selectOneListbox id="profesion" value="#{perfilUsuarioBean.profesion}" required="true">
+                    <f:selectItem itemLabel="Estudiante" itemValue="1" />
+                    <f:selectItem itemLabel="Empresario" itemValue="2" />
+                    <f:selectItem itemLabel="Programador" itemValue="3" />
+                    <f:selectItem itemLabel="Otro" itemValue="4" />
+                </p:selectOneListbox>
+                
                 <p:outputLabel value="login" for="login"/>
                 <p:inputText id="login" required="true" value="#{perfilUsuarioBean.login}" />
+                
                 <p:outputLabel value="password" for="password"/>
                 <p:password id="password" required="true" value="#{perfilUsuarioBean.password}" feedback="true"
                             inline="true" weakLabel="debil" goodLabel="buena" strongLabel="fuerte" promptLabel="ingrese su password"
                             match="confirmarpassword"/>
+                
                 <p:outputLabel value="Confirmacion password" for="confirmarpassword" />
                 <p:password id="confirmarpassword" required="true" />
+                
                 <p:outputLabel value="Nacimiento " for="nacimiento" />
                 <p:calendar id="nacimiento" required="true" value="#{perfilUsuarioBean.nacimiento}"
                             pattern="dd/MM/yyyy" readonly="true" readonlyInput="false" navigator="true" pages="4"
                             mode="popup" locale="es"/>
+                
+                <p:outputLabel value="intereses" for="intereses" />
+                <p:selectOneListbox id="intereses" value="#{perfilUsuarioBean.interes}" required="true" converter="interes">
+                    <f:selectItems value="#{perfilUsuarioBean.intereses}" var="interes"
+                                   itemLabel="#{interes.descripcion}" itemValue="#{interes}"/>
+                </p:selectOneListbox>
+                
                 <p:outputLabel value="comentarios" for="comentario" />
                 <h:panelGroup>
                     <p:inputTextarea id="comentario" value="#{perfilUsuarioBean.comentarios}" cols="40" rows="5"
